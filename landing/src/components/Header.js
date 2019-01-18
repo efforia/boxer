@@ -4,7 +4,7 @@ class Header extends React.Component {
     render() {
         return (
             <section id="header">
-                <h1>Foo</h1>
+                <h1>Frete Fácil</h1>
             </section>
         )
     }
