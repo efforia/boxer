@@ -1,1 +1,0 @@
-{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"fretefacildev.orders"},{"v":2,"key":{"job.origin.address.location":"2dsphere"},"name":"job.origin.address.location_2dsphere","ns":"fretefacildev.orders","background":true,"2dsphereIndexVersion":3}],"uuid":"c0623f3777bc4c3689beb6a3e49eaf32"}
