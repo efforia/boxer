@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - database:/var/lib/postgresql/data
+    restart: always
+    container_name: database
+  store:
+    image: redis
+    restart: always
+    container_name: store
+  web:
+    build: .
+    command: gunicorn boxer.wsgi -b 0.0.0.0:8000
+    restart: always
+    environment:
+      - VIRTUAL_HOST=fretefacil.efforia.io
+      - REDIS_URL=store
+      - DATABASE_URL=postgres://postgres@db:5432/postgres
+    volumes:
+      - .:/code
+    expose:
+      - "8000"
+    depends_on:
+      - db
+    container_name: boxer
+
+volumes:
+    database:
+
+networks:
+    default:
+      external:
+        name: efforia
