@@ -19,7 +19,7 @@ const mongoose = require("mongoose");
 
 const swaggerSpecs = require("swagger-spec-express");
 const swaggerUi = require("swagger-ui-express");
-const faviconPath = path.join(__dirname, "public", "app", "assets", "icon", "favicon.ico");
+const faviconPath = path.join(__dirname, "public", "app", "assets", "icon", "favicon.png");
 
 const colors = require("colors");
 const klawSync = require("klaw-sync");

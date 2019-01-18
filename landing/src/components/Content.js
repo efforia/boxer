@@ -1,8 +1,15 @@
 import React from 'react'
 import landing01 from "../assets/img/landing-01.png";
 import logo from "../assets/img/logo.png";
+import { animateScroll as scroll } from "react-scroll";
+
 
 class Content extends React.Component {
+  scrollToDiv(id) {
+      var div = document.querySelector(`#${id}`);
+      var offsetTop = div.offsetTop;
+      scroll.scrollTo(offsetTop, { duration: 250 });
+  }
     render() {
         return (
           <React.Fragment>
@@ -14,39 +21,22 @@ class Content extends React.Component {
                               <section className="header-text">Por que criamos o Frete Fácil?</section>
                           </div>
                           <div className="advantages">
-                              <ul>
-                                  <li>
-                                      <span>
-                                          Foo foo foo foo foo foo foo foo.
-                                      </span>
-                                  </li>
-                                  <li>
-                                      <span>
-                                          Foo foo foo foo foo foo foo foo.
-                                      </span>
-                                  </li>
-                                  <li>
-                                      <span>
-                                          Foo foo foo foo foo foo foo foo.
-                                      </span>
-                                  </li>
-                                  <li>
-                                      <span>
-                                          Foo foo foo foo foo foo foo foo.
-                                      </span>
-                                  </li>
-                                  <li>
-                                      <span>
-                                          Foo foo foo foo foo foo foo foo.
-                                      </span>
-                                  </li>
-                              </ul>
+                            <br/>
+                              <p className="text-highlight">
+                                Precisa transportar seus equipamentos, móveis ou
+                                qualquer outra coisa pela cidade? Conheça os
+                                freteiros, seu valor e escolha o frete ideal para você.
+                              </p>
+                              <br/>
                           </div>
                           <div className="text-center">
                               <button className="btn-section btn-primary" onClick={(e) => this.scrollToDiv('academical-services')}>
-                                  Para você
+                                Benefícios
                               </button>
-                              <button className="btn-section btn-primary" onClick={(e) => this.scrollToDiv('academical-services')}>
+                              <button onClick={(e) => this.scrollToDiv('subscribe')} className="btn-primary btn-section">
+                                Cadastre-se
+                              </button>
+                              {/*<button className="btn-section btn-primary" onClick={(e) => this.scrollToDiv('academical-services')}>
                                   Para produtores
                               </button>
                               <button className="btn-section btn-primary" onClick={(e) => this.scrollToDiv('academical-services')}>
@@ -54,7 +44,7 @@ class Content extends React.Component {
                               </button>
                               <button className="btn-section btn-primary" onClick={(e) => this.scrollToDiv('academical-services')}>
                                   Para entregadores
-                              </button>
+                              </button>*/}
                           </div>
                       </div>
                       <div className="col-md-5 col-md-offset-1 hidden-xs hidden-sm">
@@ -73,8 +63,8 @@ class Content extends React.Component {
                                   <i className="fa fa-list"></i>
                               </div>
                               <div className="text">
-                                  <h4>Lorem</h4>
-                                  <p>Lorem Ipsum dollem fabricsom de ideiasom sit amet.</p>
+                                  <h4>Visibilidade</h4>
+                                  <p className="text-center">Conheça todos os freteiros à disposição.</p>
                               </div>
                           </div>
                       </div>
@@ -83,8 +73,8 @@ class Content extends React.Component {
                               <div className="icon">
                                   <i className="fa fa-refresh"></i>
                               </div>
-                              <h4>Ipsum</h4>
-                              <p>Lorem Ipsum dollem fabricsom de ideiasom sit amet.</p>
+                              <h4>Valor</h4>
+                              <p className="text-center">Compare os valores e o custo/benefício.</p>
                           </div>
                       </div>
                       <div className="col-md-3">
@@ -92,8 +82,8 @@ class Content extends React.Component {
                               <div className="icon">
                                   <i className="fa fa-search"></i>
                               </div>
-                              <h4>Dollem <br /></h4>
-                              <p>Lorem Ipsum dollem fabricsom de ideiasom sit amet.</p>
+                              <h4>Segurança <br /></h4>
+                              <p className="text-center">Tenha seus pertences transportados com segurança.</p>
                           </div>
                       </div>
                       <div className="col-md-3">
@@ -101,8 +91,8 @@ class Content extends React.Component {
                               <div className="icon">
                                   <i className="fa fa-bar-chart"></i>
                               </div>
-                              <h4>Sit <br /></h4>
-                              <p>Lorem Ipsum dollem fabricsom de ideiasom sit amet.</p>
+                              <h4>Confiança <br /></h4>
+                              <p className="text-center">Avalie seu freteiro para compartilhar a experiência.</p>
                           </div>
                       </div>
                   </div>

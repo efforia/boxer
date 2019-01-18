@@ -589,7 +589,7 @@ a {
 }
 
 .subscribe .subscribe-input {
-    width: calc(100vw - 50px);
+    width: calc(35vw - 50px);
     text-align: center;
     max-width: 500px;
     color: #888;
@@ -935,8 +935,8 @@ a {
     text-align: center;
     .info {
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 30%;
+        transform: translateX(-20%);
         z-index: 20;
         top: 50px;
         a {
@@ -975,7 +975,8 @@ a {
     .card {
         background-color: white;
         width: 100%;
-        min-height: 390px;
+        text-align:center;
+        min-height: 300px;
         padding: 10px 30px;
         border: 1px solid #DDDDDD;
         border-radius: 10px;
@@ -1003,7 +1004,7 @@ a {
             margin: 30px 0 -15px;
         }
         p {
-            text-align: left;
+            // text-align: left;
             font-size: 16px;
             line-height: 22px;
             color: #777;
@@ -1082,6 +1083,7 @@ button.btn-primary {
     padding-bottom: 10px;
     margin-bottom: 2px;
     text-transform: uppercase;
+    font-size:1.2em;
     opacity: 1;
     &:hover,
     &:focus,
@@ -1301,4 +1303,10 @@ button.btn-primary {
 
 .slider-control-bottomcenter {
     margin-bottom: -50px;
+}
+
+.text-highlight {
+  font-size: 1.7em !important;
+  line-height: 1.5em !important;
+  color: gray !important;
 }

@@ -6,7 +6,7 @@ class Footer extends React.Component {
             <footer className="footer">
                 <div className="container">
                     <div className="copyright">
-                        © Frete Fácil | 2019.
+                        © Frete Fácil
                     </div>
                 </div>
             </footer>

@@ -1,16 +1,18 @@
 import React from 'react'
 
 class Form extends React.Component {
+  subscribe() {
+    alert("Thanks!")
+  }
     render() {
         return (
           <div className="section section-features section-subscribe section-no-padding" id="subscribe">
             <div className="parallax filter-gradient blue" data-color="blue">
               <div className="parallax-background banner-parallax"></div>
               <div className="info">
+              <div className="col-md-6">
                 <br />
-                <br />
-                <br />
-                <h1><br />Eu quero fazer frete </h1>
+                <h1><br />Eu faço frete </h1>
                 <br />
                 <br />
                 <section className="subscribe">
@@ -21,7 +23,20 @@ class Form extends React.Component {
                   {/*<input type="text" className="subscribe-input" id="subscribe-input" placeholder="Teu endereço de e-mail" />
                   <input type="text" className="subscribe-input" id="subscribe-input" placeholder="Teu endereço de e-mail" />*/}
                 </section>
-                <button className="btn-subscribe" id="subscribe-btn"> Cadastrar  </button>
+                <button className="btn-subscribe" id="subscribe-btn" onClick={(e) => this.subscribe(e)}> Cadastrar  </button>
+              </div>
+              <div className="col-md-6">
+                <br />
+                <h1><br />Eu quero um frete </h1>
+                <br />
+                <br />
+                <section className="subscribe">
+                  <input type="text" className="subscribe-input" id="subscribe-input" placeholder="Teu endereço de e-mail" />
+                </section>
+                <button className="btn-subscribe" id="subscribe-btn"> Saber mais  </button>
+              </div>
+              <br />
+              <br />
               </div>
             </div>
           </div>
