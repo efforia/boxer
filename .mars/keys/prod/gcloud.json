@@ -1,0 +1,12 @@
+{
+    "type": "service_account",
+    "project_id": "cozinheme-prod",
+    "private_key_id": "5167e14bd2d0c3ec8b85343609542bfdbfd87082",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCyMMOO6JnhjIyJ\n/TKflVeO9V5quXfAzcv/3mvvlRcnjnFQI5rI0n53MMkQ/8M15wlO+HxQYA0R3IJC\njMMkcnxHkJ3tS8qpUEurqo0eEKxinQDIiv80dXOC2IF1wle6EeNtqMiya2SaRr3f\n6BurWwvzSzDDIg8mHOpZMRizAg9MxvS4lbnKuyKLaDgg6UGrmXL6OD0W+Qid0sIu\nAZTTRPuA7ZcMO71lxN8DNaHOAa3whE6fZPcMT2w5YqTLukoHn1ILri9fmiRHthDa\n2KFIy87b8+pEG5Qaj4RLmxm/I56E2TmvqWAqtT7Db8qs5psc9Wi4bDMTYEJrteyI\nXsUYcnMlAgMBAAECggEALil34APeKZJRrkXL4Y+82SozxY46udYWrTif2bdUAkli\njZJLvQ7a+GHJFQBNQB+UR8MT4XagrCnmDPuOaljGXXvXjev+mpJUqCpM2KcVIY7u\n7wUjTCHJRPJ1x14LgAa2VmhNZftwWo9NDT6CPIgftm2aOlMOfZ8sDuMrNOSptge9\nwuUd2Uar57GQcyLLcUyn/+42+/NiW6sS965WZCSj/+k41cpvmf4zxQBOxZOavNkc\ntu8kCPY3lpv9Z68lwgnxra141R8glbTSN2Gbp98kphXLZ8XfGScrkqvbs187waly\n1hZA4291Kad9F1DALIe/6umN7w8UqA3MytuzRI2/GQKBgQDnr/uTxqHpLOFpCVEu\nPOnPHtuuUyO2LVmw1gIIYeZjaUEWzd1DsGlSBrn8O/OCkLsvymF9qPRod8/ixxXK\nhMeOswuTWc3VEw8ZJpy/z+h/q+bc9Sd5Je66lKcpmPP92gsuZZFWS1aj6xDpqtx7\nEUcB3ovI685uh0regzMkmhu28wKBgQDE46Wggam/Sh5YFVf7+BQSheTxSMnbmy7u\n3P/ozjTTMPT0yK20x2Tu2086uih2GHekyY5kL7k3QFQAas4XsaaFgCc7FxQWMm34\n/2rJ9TY7ehQ08NhwQNwvhqaFMe7dPQvrB17zzXOGSq9LqPWJLsEuv+twcrRr9IuN\nB7nvMtdjhwKBgQDbkn7ceB0uPSiLQRc8uOHlNxt/RK/NkYE1BDz88LtFb5UOJaAS\n7HeEE3fjwnVvQfcEvcpTKvImp5XPGFpgiiIN7UWFKlDWJK/kaCGZ71Iq3SF4OqZk\nPDzZetRJqflilWiPWha5L8E2rCplKVa3E5K2BNF5Y3FKctHTu4eWoq6tXQKBgEcV\nXV3Wkl9ytgPdKNfal/ycBK0sN1ym6Unp1ibKE/5PhZC+xyAmgQVPfopYXXVNnhyL\nfHIlXLxa6DkCVoftZo56Vy+ZRHJDILsuE/L4Ke1NRPBcJ/hXImeyOHqMLY4IlT30\nek6RVW0dl648QPGXRL3JIoqFjygOsTdom7OFaogPAoGBAMgGnNFZuWNo1LsLe26o\nxWXQ9d3MywaMRRHMAb07kY/Mkt7AQTfWcUXz/BUzmqgxB4MHx/zF0RRcA7wMBYYq\nfX7MZvpXtY1JdjhglVnPr8aUpAfpy+0PY+9LyOwfUVMtHHyLodlTs/sjIR7RfM/E\nA+pLvE4eUG+U5WHRTV8QKP1/\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-xntwt@cozinheme-prod.iam.gserviceaccount.com",
+    "client_id": "104613353262193773855",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://accounts.google.com/o/oauth2/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-xntwt%40cozinheme-prod.iam.gserviceaccount.com"
+  }
