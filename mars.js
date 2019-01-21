@@ -38,7 +38,7 @@ const setSubdomainStaticFolder = (app, alias, folder) => {
 
 const Mars = module.exports = {
     init: function (app) {
-        log(`♂ Mars Server: starting...`.yellow.bold);
+        log(`Mars Server: starting...`.yellow.bold);
         mongoose.Promise = require("bluebird");
         app.use(function (err, req, res, next) {
             res.status(500).send("This is Mars to Major Tom: Something's wrong!");
@@ -47,13 +47,13 @@ const Mars = module.exports = {
 
     database: async function () {
         try {
-            log(`♂ Connecting to MongoDB: ${env.server.MONGODB}...`.yellow);
+            log(`Connecting to MongoDB: ${env.server.MONGODB}...`.yellow);
             mongoose.Promise = global.Promise;
             mongoose.set('useCreateIndex', true);
             await mongoose.connect(env.server.MONGODB, { useMongoClient: true });
         } catch (error) {
             if (error) console.log(error);
-            log(`♂ MongoDB connection failure: ${error}!`.red);
+            log(`MongoDB connection failure: ${error}!`.red);
         }
     },
 
@@ -69,7 +69,7 @@ const Mars = module.exports = {
         io.use(wildcard());
         io.on('connection', function (socket) {
             socket.emit("connection");
-            console.log((`♂ Mars Server: An user connected.`).green);
+            console.log((`Mars Server: An user connected.`).green);
             socket.on('*', (event) => {
                 let name = event.data ? event.data[0] : "";
                 let data = event.data ? (event.data[1] || {}) : {};
@@ -98,12 +98,13 @@ const Mars = module.exports = {
             apiPath = isWin ? api.split("\\") : api.split("/");
             apiPath = apiPath[apiPath.length - 2];
             displayName = titlecase(apiPath.replace("-", " "));
-            log(`♂ Initializing ${displayName} routes...`.yellow);
+            log(`Initializing ${displayName} routes...`.yellow);
             router.use(`/${apiPath}`, require(`${api}`));
         });
         let isLocalhost = ip.address().indexOf("192") > -1;
         if (!isLocalhost) {
-            app.use(subdomain(env.client.IS_DEVELOPMENT ? "dev.api" : "api", router)); // Add to API routes
+            // app.use(subdomain(env.client.IS_DEVELOPMENT ? "dev.api" : "api", router)); // Add to API routes
+            app.use(router);
         } else {
             app.use(router); // Add to app routes
         }
@@ -112,10 +113,10 @@ const Mars = module.exports = {
 
     static: async function (app) {
         if (env.server.ENV_TYPE !== "local") {
-            setSubdomainStaticFolder(app, (env.client.IS_DEVELOPMENT ? "dev.www" : "www"), "landing");
-            setSubdomainStaticFolder(app, (env.client.IS_DEVELOPMENT ? "dev.dashboard" : "dashboard"), "admin");
-            setSubdomainStaticFolder(app, (env.client.IS_DEVELOPMENT ? "dev.app" : "app"), "customer");
-            setSubdomainStaticFolder(app, (env.client.IS_DEVELOPMENT ? "dev.driver" : "driver"), "driver");
+            // setSubdomainStaticFolder(app, (env.client.IS_DEVELOPMENT ? "dev.www" : "www"), "landing");
+            // setSubdomainStaticFolder(app, (env.client.IS_DEVELOPMENT ? "dev.dashboard" : "dashboard"), "admin");
+            // setSubdomainStaticFolder(app, (env.client.IS_DEVELOPMENT ? "dev.app" : "app"), "customer");
+            // setSubdomainStaticFolder(app, (env.client.IS_DEVELOPMENT ? "dev.driver" : "driver"), "driver");
         }
     },
 

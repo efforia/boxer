@@ -80,7 +80,7 @@ const auth = module.exports = {
                     return res.status(500).send(error);
 
                 if (!user)
-                    return res.status(401).send('Whoops! Check your credentials and try again!');
+                    return res.status(401).send('Whoops! Check your user and try again!');
 
                 if (!user.passwordIsValid(password))
                     return res.status(401).send('Whoops! Check your credentials and try again!');

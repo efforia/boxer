@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 
+import Subscribe from '../components/Subscribe';
 import Form from '../components/Form';
 import Content from '../components/Content';
 import Layout from '../components/layout';
@@ -44,6 +45,7 @@ class HomePage extends React.Component {
                 </div>
               </div>
               <Content/>
+              <Subscribe/>
               <Form/>
             </div>
           </Layout>

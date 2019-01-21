@@ -12,13 +12,13 @@ const errorhandler = require("errorhandler");
 const compression = require("compression");
 const mars = require("./mars");
 const log = require("./.bin/utils/logger").log;
-const secure = require('express-force-https');
+// const secure = require('express-force-https');
 
 const app = express();
 const env = require("./.env");
 let host = ip.address();
 let port = process.env.PORT || "3000";
-app.use(secure);
+// app.use(secure);
 app.use(compression());
 app.use(cors());
 app.use(errorhandler());
@@ -42,7 +42,7 @@ if (dev_mode_on) {
 
 const server = app.listen(port, () => {
     mars.database();
-    log((`♂ Mars Server: API listening on http://${host}:${port}`).green.bold);
+    log((`Mars Server: API listening on http://${host}:${port}`).green.bold);
 });
 
 mars.socket(app, server);
