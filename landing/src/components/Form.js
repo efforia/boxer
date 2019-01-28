@@ -88,7 +88,7 @@ class Form extends React.Component {
                 id="streetInput"
                 name="street"
                 onChange={this.handleChange}
-                placeholder="Rua Vigário José Inácio, 399"
+                placeholder="Praça Montevideo"
                 />
               </div>
               <div className="three columns">
@@ -98,7 +98,7 @@ class Form extends React.Component {
                 id="numberStreetInput"
                 name="number"
                 onChange={this.handleChange}
-                placeholder="702"
+                placeholder="10"
                 />
               </div>
             </div>
@@ -140,7 +140,7 @@ class Form extends React.Component {
                 id="postalCodeInput"
                 name="postalCode"
                 onChange={this.handleChange}
-                placeholder="90020-100"
+                placeholder="00000-000"
                 />
               </div>
             </div>
@@ -152,7 +152,7 @@ class Form extends React.Component {
                 id="emailInput"
                 name="email"
                 onChange={this.handleChange}
-                placeholder="contato@fretefacil.net"
+                placeholder="ola@exemplo.com.br"
                 />
               </div>
               <div className="four columns">
@@ -171,7 +171,7 @@ class Form extends React.Component {
                 id="phoneInput"
                 name="phone"
                 onChange={this.handleChange}
-                placeholder="(51) 3361-5798"
+                placeholder="(00) 0000-0000"
                 />
               </div>
             </div>
@@ -183,7 +183,7 @@ class Form extends React.Component {
                 id="nameInput"
                 name="name"
                 onChange={this.handleChange}
-                placeholder="William Oliveira de Lagos"
+                placeholder="Insira seu nome completo"
                 />
               </div>
               <div class="two columns">
@@ -193,7 +193,7 @@ class Form extends React.Component {
                 id="birthInput"
                 name="birthDate"
                 onChange={this.handleChange}
-                placeholder="12/04/1992"
+                placeholder="00/00/0000"
                 />
               </div>
               <div class="three columns">
@@ -203,7 +203,7 @@ class Form extends React.Component {
                 id="taxInput"
                 name="number"
                 onChange={this.handleChange}
-                placeholder="001.250.400-10"
+                placeholder="000.000.000-00"
                 />
               </div>
             </div>

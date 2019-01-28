@@ -1,6 +1,7 @@
 import React from 'react';
 import Background from "../assets/img/backgrounds/bg-01.jpg";
 import logo from "../assets/img/logo.svg";
+import { animateScroll as scroll } from "react-scroll";
 
 class Jumbotron extends React.Component {
   scrollToDiv(id) {
