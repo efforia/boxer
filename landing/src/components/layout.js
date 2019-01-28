@@ -1,6 +1,8 @@
-import React from "react";
-import "../assets/scss/landing.scss";
-import "../assets/css/bootstrap.css";
+import React from "react"
+import "../styles/normalize.css"
+import "../styles/skeleton.css"
+import "../styles/landing.css"
+
 
 import Footer from "./Footer";
 

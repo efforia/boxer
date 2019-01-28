@@ -1,0 +1,146 @@
+/* Landing Page Styles */
+
+img, input {
+  height: 100%;
+  width: 100%;
+}
+
+footer {
+  color: white;
+  width: 100vw;
+  background-color: #f19800;
+  padding: 1em 0em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+#jumbotron {
+  background-size: cover;
+  background-position: center;
+  min-height: 50vh;
+}
+
+#presentation {
+  min-height: 40vh;
+}
+
+#border {
+   margin: 0;
+   min-width: 100vw;
+   min-height: 10vh;
+}
+
+#services {
+  padding: 3em 0em;
+  background: #dfdfdf;
+  min-height: 30vh;
+}
+
+#presentation button, #subscribe button, .oneline button {
+  background-color: #f19800;
+  border-color: #f19800;
+  color: white;
+  margin-right: 1em;
+  border-radius: 2em;
+  height: 50px;
+  font-size: 1.2em;
+  line-height: 50px;
+}
+
+#presentation button.button-primary {
+  background-color: #f25a00;
+  border-color: #f25a00;
+}
+
+.invisible {
+  display: none;
+}
+
+.oneline input {
+  width: 100%;
+}
+
+.orange {
+  background: rgba(241, 126, 57, 0.8);
+  min-height: 50vh;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+}
+
+.bottom {
+  display: flex;
+  align-items: end;
+}
+
+.bottom-spacing {
+  padding-bottom: 7em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-logo {
+  color: white;
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 1;
+  letter-spacing: -0.1rem;
+  margin-left: 0.7em;
+}
+
+.text-highlight {
+  font-size: 1.4em;
+  font-weight: lighter;
+}
+
+.text-header {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+.text-subheader {
+  color: #000;
+  font-size: 1.4em;
+  font-weight: bolder;
+  margin-bottom: .5em;
+}
+
+.bar {
+  background: #f19800;
+  height: 5px;
+  width: 25%;
+  margin-top: 1em;
+  margin-bottom: 10px;
+}
+
+.copyright {
+  margin: 0;
+  width: 100%;
+}
+
+@font-face {
+ font-family: 'Roboto';
+ src: url("../assets/fonts/roboto.ttf");
+}
+
+@font-face {
+ font-family: 'Roboto Black';
+ src: url("../assets/fonts/robotoblack.ttf");
+}
+
+@media (min-width: 400px) {
+  #presentation .align {
+    display: flex;
+    align-items: end;
+  }
+  #services .invisible {
+    display: block;
+  }
+}

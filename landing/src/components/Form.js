@@ -12,7 +12,6 @@ class Form extends React.Component {
       phone: "",
       vicinity: "",
       street: "",
-      number: "",
       neighbourhood: "",
       city: "",
       state: "",
@@ -76,32 +75,149 @@ class Form extends React.Component {
     alert("Obrigado!")
   }
   render() {
-        return (
-          <div className="section section-features section-subscribe section-no-padding" id="subscribe">
-            <div className="parallax filter-gradient blue" data-color="blue">
-              <div className="parallax-background banner-parallax"></div>
-              <div className="info">
-                <h1>Eu faço frete </h1>
-                <section className="subscribe">
-                  <input type="text" className="subscribe-input" name="street" onChange={this.handleChange} placeholder="Endereço completo" />
-                  <input type="number" className="subscribe-input" name="number" onChange={this.handleChange} placeholder="Número" />
-                  <input type="text" className="subscribe-input" name="neighbourhood" onChange={this.handleChange} placeholder="Bairro" />
-                  <input type="text" className="subscribe-input" name="city" onChange={this.handleChange} placeholder="Cidade" />
-                  <input type="text" className="subscribe-input" name="state" onChange={this.handleChange} placeholder="Estado" />
-                  <input type="text" className="subscribe-input" name="postalCode" onChange={this.handleChange} placeholder="Código Postal" />
-                  <input type="email" className="subscribe-input" name="email" onChange={this.handleChange} placeholder="Teu endereço de e-mail" />
-                  <input type="text" className="subscribe-input" name="name" onChange={this.handleChange} placeholder="Nome completo" />
-                  <input type="text" className="subscribe-input" name="phone" onChange={this.handleChange} placeholder="Telefone para contato" />
-                  <input type="password" className="subscribe-input" name="password" onChange={this.handleChange} placeholder="Senha" />
-                  <input type="text" className="subscribe-input" name="birthDate" onChange={this.handleChange} placeholder="Data de nascimento" />
-                  <input type="text" className="subscribe-input" name="number" onChange={this.handleChange} placeholder="Registro de CPF/CNPJ" />
-                </section>
-                <button className="btn-subscribe" id="subscribe-btn" onClick={(e) => this.subscribe(e)}> Cadastrar  </button>
+    return (
+      <div id="subscribe">
+        <div className="container">
+          <h3 className="text-center">Eu faço frete</h3>
+          <form className="subscribe">
+            <div className="row">
+              <div className="nine columns">
+                <label for="streetInput">Endereço completo</label>
+                <input
+                type="text"
+                id="streetInput"
+                name="street"
+                onChange={this.handleChange}
+                placeholder="Rua Vigário José Inácio, 399"
+                />
+              </div>
+              <div className="three columns">
+                <label for="numberStreetInput">Complemento</label>
+                <input
+                type="text"
+                id="numberStreetInput"
+                name="number"
+                onChange={this.handleChange}
+                placeholder="702"
+                />
               </div>
             </div>
-          </div>
-        );
-    }
+            <div className="row">
+              <div className="three columns">
+                <label for="neighbourhoodInput">Bairro</label>
+                <input
+                type="text"
+                id="neighbourhoodInput"
+                name="neighbourhood"
+                onChange={this.handleChange}
+                placeholder="Centro Histórico"
+                />
+              </div>
+              <div className="four columns">
+                <label for="cityInput">Cidade</label>
+                <input
+                type="text"
+                id="cityInput"
+                name="city"
+                onChange={this.handleChange}
+                placeholder="Porto Alegre"
+                />
+              </div>
+              <div className="two columns">
+                <label for="stateInput">Estado</label>
+                <input
+                type="text"
+                id="stateInput"
+                name="state"
+                onChange={this.handleChange}
+                placeholder="RS"
+                />
+              </div>
+              <div className="three columns">
+                <label for="postalCodeInput">Código Postal</label>
+                <input
+                type="text"
+                id="postalCodeInput"
+                name="postalCode"
+                onChange={this.handleChange}
+                placeholder="90020-100"
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="four columns">
+                <label for="emailInput">Endereço de E-mail</label>
+                <input
+                type="email"
+                id="emailInput"
+                name="email"
+                onChange={this.handleChange}
+                placeholder="contato@fretefacil.net"
+                />
+              </div>
+              <div className="four columns">
+                <label for="passwordInput">Senha</label>
+                <input
+                type="password"
+                id="passwordInput"
+                name="password"
+                onChange={this.handleChange}
+                />
+              </div>
+              <div className="four columns">
+                <label for="phoneInput">Telefone para contato</label>
+                <input
+                type="text"
+                id="phoneInput"
+                name="phone"
+                onChange={this.handleChange}
+                placeholder="(51) 3361-5798"
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="seven columns">
+                <label for="nameInput">Nome Completo</label>
+                <input
+                type="text"
+                id="nameInput"
+                name="name"
+                onChange={this.handleChange}
+                placeholder="William Oliveira de Lagos"
+                />
+              </div>
+              <div class="two columns">
+                <label for="birthInput">Nascimento</label>
+                <input
+                type="text"
+                id="birthInput"
+                name="birthDate"
+                onChange={this.handleChange}
+                placeholder="12/04/1992"
+                />
+              </div>
+              <div class="three columns">
+                <label for="taxInput">Registro de CPF/CNPJ</label>
+                <input
+                type="text"
+                id="taxInput"
+                name="number"
+                onChange={this.handleChange}
+                placeholder="001.250.400-10"
+                />
+              </div>
+            </div>
+            <div className="row text-center">
+              <label for="descriptionMessage" style={{ textAlign: "left" }}>Informações Adicionais</label>
+              <textarea class="u-full-width" placeholder="Insira informações sobre se tem baú, o veículo é aberto ou fechado..." id="descriptionMessage"></textarea>
+              <br/>
+              <button className="button-primary" onClick={(e) => this.subscribe(e)}> Cadastrar </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Form
