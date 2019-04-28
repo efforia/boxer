@@ -18,11 +18,13 @@ const app = express();
 const env = require("./.env");
 let host = ip.address();
 let port = process.env.PORT || "3000";
+let storage = multer.memoryStorage()
 // app.use(secure);
 app.use(compression());
 app.use(cors());
 app.use(errorhandler());
-app.use(multer({ dest: path.resolve(__dirname, ".tmp") }).any());
+// app.use(multer({ dest: path.resolve(__dirname, ".tmp") }).any());
+app.use(multer({ storage: storage }).any())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -42,7 +44,7 @@ if (dev_mode_on) {
 
 const server = app.listen(port, () => {
     mars.database();
-    log((`Mars Server: API listening on http://${host}:${port}`).green.bold);
+    log((`Boxer Server: API listening on http://${host}:${port}`).green.bold);
 });
 
 mars.socket(app, server);

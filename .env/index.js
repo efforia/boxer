@@ -25,6 +25,12 @@ const server = {
     ONESIGNAL_API_KEY: "MTg2ZDRlZTItNjgwNC00OGQ1LWJmOGQtZTdiOTYzYzg1MzFh",
     SENDGRID_API_KEY: "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",
     FACEBOOK_CLIENT_SECRET: "27545f26f6e4d15a6c0b09f8a2ef4917",
+    DIGITALOCEAN_CONFIG: {
+      spacesAppKey: 'M7RDRSA5GX5JJAUAMSFL',
+      spacesAppSecret: 'TWjt3Vcy72+5bhU8lkKpo0c34N9xbm/m17rmKL9ZAaY',
+      spacesBucket: 'efforia',
+      spacesEndpoint: 'ams3.digitaloceanspaces.com'
+    },
     FIREBASE_CONFIG: {
         apiKey: "AIzaSyBTGlegchR-EM8eXYMQ27JwzYepETRQf2o",
         messagingSenderId: "1025594657774",

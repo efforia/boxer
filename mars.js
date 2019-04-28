@@ -38,7 +38,7 @@ const setSubdomainStaticFolder = (app, alias, folder) => {
 
 const Mars = module.exports = {
     init: function (app) {
-        log(`Mars Server: starting...`.yellow.bold);
+        log(`Boxer Server: starting...`.yellow.bold);
         mongoose.Promise = require("bluebird");
         app.use(function (err, req, res, next) {
             res.status(500).send("This is Mars to Major Tom: Something's wrong!");
