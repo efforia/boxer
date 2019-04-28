@@ -8,8 +8,20 @@
 // --------------- Module Imports
 const Picture = require('./picture.model');
 const User = require('../user/user.model');
-const { Storage } = require('@google-cloud/storage');
 const env = require('../../.env');
+
+// Dependencies for DigitalOcean Spaces Access
+const aws = require('aws-sdk');
+
+// Use our env vars for setting credentials.
+aws.config.update({
+  accessKeyId: env.server.DIGITALOCEAN_CONFIG.spacesAppKey,
+  secretAccessKey: env.server.DIGITALOCEAN_CONFIG.spacesAppSecret
+});
+
+// Set S3 endpoint to DigitalOcean Spaces
+const spacesEndpoint = new aws.Endpoint(env.server.DIGITALOCEAN_CONFIG.spacesEndpoint);
+const spaces = new aws.S3({ endpoint: spacesEndpoint });
 
 // --------------- Module Variables
 const bucket = env.server.FIREBASE_CONFIG.storageBucket;
@@ -17,19 +29,33 @@ const storage = new Storage({ projectId: env.server.FIREBASE_CONFIG.projectId })
 
 // --------------- Module Controller
 const PictureCtrl = module.exports = {
-    save: async function (filename, filepath, ownerId, mimeType, sent) {
-        await storage.bucket(bucket).upload(filepath, { resumable: false }); // Opens the storage bucket
-        const bucketFile = await storage.bucket(bucket).file(filename); // Creates a bucket file
-        await bucketFile.makePublic(); // Sets the file as public
-        const externalRef = (await bucketFile.getMetadata())[0].mediaLink; // Gets the reference to the file
-        let picture = await Picture.create({ // Creates the picture
-            ownerId: ownerId, // With the owner document id
-            mimeType: mimeType, // And the picture mime type 
-            sent: sent, // And the timestamp from when the picture was uploaded
-            file: filename, // And the picture file name
-            externalRef: externalRef // And the picture bucket file url
+    save: async function (filename, buffer, ownerId, mimeType, sent) {
+        const filepath = 'fretefacil/'+ownerId+'_'+filename
+        let params = {
+          Bucket: env.server.DIGITALOCEAN_CONFIG.spacesBucket,
+          Key: filepath,
+          Body: buffer,
+          ContentType: mimeType,
+          ACL: 'public-read'
+        };
+        spaces.putObject(params, async function(err, data) {
+          if (err) console.log(err)
+          else {
+            // console.log(data);
+            const externalRef = 'https://' +
+            env.server.DIGITALOCEAN_CONFIG.spacesBucket + '.' +
+            env.server.DIGITALOCEAN_CONFIG.spacesEndpoint + '/' +
+            filepath;
+            let picture = await Picture.create({ // Creates the picture
+                ownerId: ownerId, // With the owner document id
+                mimeType: mimeType, // And the picture mime type
+                sent: sent, // And the timestamp from when the picture was uploaded
+                file: filename, // And the picture file name
+                externalRef: externalRef // And the picture bucket file url
+            });
+            return picture; // Returns the created picture
+          }
         });
-        return picture; // Returns the created picture
     },
 
     get: async function (id) {
@@ -42,8 +68,15 @@ const PictureCtrl = module.exports = {
 
     remove: async function (id) {
         let picture = await Picture.findOne({ _id: id }).lean(); // Gets picture information
-        let file = (await storage.bucket(bucket).file(picture.file)); // Gets picture file
-        await file.delete(); // Deletes picture file
+        const filepath = 'fretefacil/'+picture.ownerId+'_'+picture.file
+        let params = {
+          Bucket: env.server.DIGITALOCEAN_CONFIG.spacesBucket,
+          Key: filepath
+        };
+        spaces.deleteObject(params, function(err, data) {
+          if (err) console.log(err, err.stack); // an error occurred
+          else     console.log(data);           // successful response
+        });
         await Picture.remove({ _id: picture._id }); // Removes picture from database
         return picture;
     }
