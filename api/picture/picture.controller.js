@@ -23,10 +23,6 @@ aws.config.update({
 const spacesEndpoint = new aws.Endpoint(env.server.DIGITALOCEAN_CONFIG.spacesEndpoint);
 const spaces = new aws.S3({ endpoint: spacesEndpoint });
 
-// --------------- Module Variables
-const bucket = env.server.FIREBASE_CONFIG.storageBucket;
-const storage = new Storage({ projectId: env.server.FIREBASE_CONFIG.projectId }); // In case of authentication errors, please check the keys inside the env gcloud.json file
-
 // --------------- Module Controller
 const PictureCtrl = module.exports = {
     save: async function (filename, buffer, ownerId, mimeType, sent) {
