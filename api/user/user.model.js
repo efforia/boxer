@@ -27,6 +27,7 @@ const UserSchema = mongoose.Schema({
         hash: { type: String },
         createdAt: { type: Date }
     },
+    info: { type: String },
     birthDate: { type: Date },
     oauth: { type: Object },
     provider: { type: String, default: 'native' },

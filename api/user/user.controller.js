@@ -21,7 +21,6 @@ const UserModels = { 'ADMIN': Admin, 'CUSTOMER': Customer, 'MERCHANT': Merchant 
 // --------------- Module Controller
 const UserCtrl = module.exports = {
     create: async function (information) {
-        console.log(information);
         let result = await User.findOne({ email: information.email }); // Tries to locate user
         if (result) throw new Error("Whoops! There already exists an user with this e-mail."); // In case it already exists, return error
         if (information.role == "ADMIN" || information.role == "admin") throw new Error("Not so fast fellow folk! This level of permissions must be earned, not taken."); // In case it has admin role, THEY SHALL NOT PASS!
