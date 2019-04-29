@@ -57,7 +57,8 @@ router.get("/:itemId", execute(async (req, res) => {
 
 router.post("/remove/:id", auth.isAuthenticated(), execute(async (req, res) => {
     let id = req.params.id;
-    let removed = await controller.remove(id);
+    let ownerId = req.user._id;
+    let removed = await controller.remove(id, ownerId);
     return res.status(200).json(removed);
 })).describe({
     tags: [router.entity],

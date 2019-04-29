@@ -66,9 +66,9 @@ const PictureCtrl = module.exports = {
         return await Picture.findOne({ ownerId: ownerId }); // Get the latest picture for the given item
     },
 
-    remove: async function (id) {
+    remove: async function (id, ownerId) {
         let picture = await Picture.findOne({ _id: id }).lean(); // Gets picture information
-        const filepath = 'fretefacil/'+picture.ownerId+'_'+picture.file
+        const filepath = 'fretefacil/'+ownerId+'_'+picture.file
         let params = {
           Bucket: env.server.DIGITALOCEAN_CONFIG.spacesBucket,
           Key: filepath
