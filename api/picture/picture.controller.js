@@ -25,7 +25,11 @@ const spaces = new aws.S3({ endpoint: spacesEndpoint });
 
 // --------------- Module Controller
 const PictureCtrl = module.exports = {
-    save: async function (filename, buffer, ownerId, mimeType, sent) {
+    save: async function (files, ownerId, mimeType, sent) {
+      for(let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const filename = file.originalname;
+        const buffer = file.buffer;
         const filepath = 'fretefacil/'+ownerId+'_'+filename
         let params = {
           Bucket: env.server.DIGITALOCEAN_CONFIG.spacesBucket,
@@ -52,6 +56,7 @@ const PictureCtrl = module.exports = {
             return picture; // Returns the created picture
           }
         });
+      }
     },
 
     get: async function (id) {

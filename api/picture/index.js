@@ -17,9 +17,9 @@ router.post("/save", auth.isAuthenticated(), execute(async (req, res) => {
     let mimeType = req.body.mimeType;
     let sent = req.body.sent;
     let ownerId = req.user._id; // Gets the picture owner id
-    let filename = req.files[0].originalname; // Gets the upload file name
-    let file = req.files[0].buffer; // Gets the uploaded file path
-    let picture = await controller.save(filename, file, ownerId, mimeType, sent);
+    /*let filename = req.files[0].originalname; // Gets the upload file name
+    let file = req.files[0].buffer; // Gets the uploaded file path*/
+    let picture = await controller.save(req.files, ownerId, mimeType, sent);
     return res.status(200).json(picture);
 })).describe({
     operationId: "addPicture",
