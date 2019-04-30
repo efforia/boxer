@@ -80,7 +80,7 @@ UserSchema.methods.passwordIsValid = function (password) {
 };
 
 UserSchema.methods.getToken = function () {
-    return jwt.sign({ _id: this._id }, master_key)
+    return jwt.sign({ _id: this._id, _role: this.role[0] }, master_key)
 };
 
 // --------------- Module Hooks
@@ -107,5 +107,5 @@ UserSchema.pre('save', function (next) {
 
 // --------------- Module Model
 const User = mongoose.model('User', UserSchema);
-User.getTokenFor = function (user) { return jwt.sign({ _id: user._id }, master_key); };
+User.getTokenFor = function (user) { return jwt.sign({ _id: user._id, _role: user.role[0] }, master_key); };
 module.exports = User;

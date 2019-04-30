@@ -100,5 +100,7 @@
     "word-extractor": "0.1.4",
     "xlsx-to-json": "0.3.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
 }
