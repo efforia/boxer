@@ -30,7 +30,6 @@
     "react-helmet": "^5.2.0",
     "react-mailchimp-form": "^1.0.1",
     "react-scroll": "^1.7.10",
-    "sharp": "^0.21.0",
     "shelljs": "^0.8.2",
     "yargs": "^12.0.2",
     "yarn": "^1.10.1"
