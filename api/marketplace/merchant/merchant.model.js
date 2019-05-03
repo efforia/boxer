@@ -49,7 +49,7 @@ let MerchantSchema = new mongoose.Schema({
     },
     paymentModes: { type: Array, default: [] },
     rating: { type: Number, default: 0 },
-    role: { type: String, required: true, uppercase: true, default: 'MERCHANT' }
+    role: [{ type: String, required: true, uppercase: true, default: 'MERCHANT' }]
 });
 
 // --------------- Module Plugins
