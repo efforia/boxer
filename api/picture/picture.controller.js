@@ -26,7 +26,9 @@ const spaces = new aws.S3({ endpoint: spacesEndpoint });
 // --------------- Module Controller
 const PictureCtrl = module.exports = {
     save: async function (files, ownerId, mimeType, sent) {
+      const pictures = [];
       for(let i = 0; i < files.length; i++) {
+        let ref = '';
         const file = files[i];
         const filename = file.originalname;
         const buffer = file.buffer;
@@ -38,25 +40,27 @@ const PictureCtrl = module.exports = {
           ContentType: mimeType,
           ACL: 'public-read'
         };
-        spaces.putObject(params, async function(err, data) {
+        await spaces.putObject(params, async function(err, data) {
           if (err) console.log(err)
           else {
             // console.log(data);
-            const externalRef = 'https://' +
+            ref = 'https://' +
             env.server.DIGITALOCEAN_CONFIG.spacesBucket + '.' +
             env.server.DIGITALOCEAN_CONFIG.spacesEndpoint + '/' +
             filepath;
-            let picture = await Picture.create({ // Creates the picture
-                ownerId: ownerId, // With the owner document id
-                mimeType: mimeType, // And the picture mime type
-                sent: sent, // And the timestamp from when the picture was uploaded
-                file: filename, // And the picture file name
-                externalRef: externalRef // And the picture bucket file url
-            });
-            return picture; // Returns the created picture
+            // return picture; // Returns the created picture
           }
         });
+        pictures.push(await Picture.create({ // Creates the picture
+            ownerId: ownerId, // With the owner document id
+            mimeType: mimeType, // And the picture mime type
+            sent: sent, // And the timestamp from when the picture was uploaded
+            file: filename, // And the picture file name
+            externalRef: ref // And the picture bucket file url
+          })
+        );
       }
+      return pictures;
     },
 
     get: async function (id) {

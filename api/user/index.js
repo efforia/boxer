@@ -12,6 +12,7 @@ const swaggerUtils = require("../utils/swagger.utils");
 const execute = require("../utils/async");
 const router = new MarsRouter("user");
 const controller = require("./user.controller");
+const user = require("./user.model").jsonSchema();
 
 // --------------- Module Controller
 router.post("/create", execute(async (req, res) => {
@@ -23,7 +24,7 @@ router.post("/create", execute(async (req, res) => {
     operationId: "createUser",
     responses: swaggerUtils.defaultResponses(),
     parameters: [
-        { "name": "user", "in": "body", "description": "JSON representation of the user to be created.", "schema": { "type": "object" } },
+        { "name": "user", "in": "body", "description": "JSON representation of the user to be created.", "schema": user },
     ]
 });
 

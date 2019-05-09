@@ -15,6 +15,7 @@ require('mongoose-schema-jsonschema')(mongoose);
 
 // --------------- Module Schema
 let OrderSchema = mongoose.Schema({
+    title: { type: String },
     customer: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     merchant: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     availableMerchants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
@@ -40,6 +41,7 @@ let OrderSchema = mongoose.Schema({
     },
     paymentInfo: { type: Object },
     payload: { type: Object },
+    pictures: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Picture' }],
     job: {
         scheduledTo: { type: Date, default: Date.now() },
         origin: {
