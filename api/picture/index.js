@@ -29,6 +29,19 @@ router.post("/save", auth.isAuthenticated(), execute(async (req, res) => {
     responses: swaggerUtils.defaultResponses()
 });
 
+router.get("/multiple/", execute(async (req, res) => {
+    let ids = req.query.ids.split(',');
+    let pictures = await controller.getIds(ids);
+    if (!pictures) return res.status(404).send({}); // In case the picture is not found, returns a 404
+    // res.header("Content-Type", pictures.mimeType); // Sets the response header
+    return res.status(200).json(pictures); // And redirects to the files
+})).describe({
+    tags: [router.entity],
+    operationId: "getPictureIds",
+    parameters: [swaggerUtils.authParam()],
+    responses: swaggerUtils.defaultResponses()
+});
+
 router.get("/:id", execute(async (req, res) => {
     let id = req.params.id;
     let picture = await controller.get(id);

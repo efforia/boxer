@@ -34,6 +34,11 @@ const OrderCtrl = module.exports = {
         return order;// Returns the created order to the front end
     },
 
+    readyOrders: async function () {
+      orders = (await Order.find({ 'status': 'created' }));
+      return orders;
+    },
+
     notifyUsersAbout: async function (order) {
         order = await OrderCtrl.format(order.toObject()); // Formats order properly
         let merchant = await User.findOne({ _id: order.merchant }); // Gets order merchant
@@ -93,10 +98,10 @@ const OrderCtrl = module.exports = {
                 user: options.user, // The user that triggered the action
                 viewerIsMerchant: options.to.__t == "Merchant", // In case the e-mail receiver will be a merchant
                 viewerIsCustomer: options.to.__t == "Customer", // In case the e-mail receiver will be a customer
-                orderLink: `${env.SERVER_ADDRESS}/job-details/${order._id}` // And, of course, the order link 
+                orderLink: `${env.SERVER_ADDRESS}/job-details/${order._id}` // And, of course, the order link
             })
         };
-        return email.send(mail); // Sends the e-mail and returns it 
+        return email.send(mail); // Sends the e-mail and returns it
     },
     cancel: async function (id) {
         let order = await Order.findOneAndUpdate({ _id: id }, { $set: { status: "canceled" } }).populate("customer merchant items.information"); // Sets the status as cancelled

@@ -9,6 +9,7 @@
 const Picture = require('./picture.model');
 const User = require('../user/user.model');
 const env = require('../../.env');
+const mongoose = require('mongoose');
 
 // Dependencies for DigitalOcean Spaces Access
 const aws = require('aws-sdk');
@@ -65,6 +66,11 @@ const PictureCtrl = module.exports = {
 
     get: async function (id) {
         return await Picture.findOne({ _id: id }); // Gets the picture information
+    },
+
+    getIds: async function (ids) {
+        const identifiers = ids.map(id => mongoose.Types.ObjectId(id));
+        return await Picture.find({ '_id': { $in: identifiers }});
     },
 
     getLatest: async function (ownerId) {

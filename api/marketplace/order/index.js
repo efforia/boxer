@@ -34,6 +34,22 @@ router.post("/", auth.isAuthenticated(), execute(async (req, res) => {
 });
 
 /**
+ * @interface getReadyOrders
+ * Lists all ready orders on system.
+ */
+router.get("/ready", auth.isAuthenticated(), execute(async (req, res) => {
+  let orders = await controller.readyOrders();
+  return res.status(200).json(orders);
+})).describe({
+    tags: [router.entity],
+    operationId: "getReadyOrders",
+    parameters: [
+        swaggerUtils.authParam()
+    ],
+    responses: Object.assign(swaggerUtils.defaultResponses())
+});
+
+/**
  * @interface getOrdersByUserId
  * Lists orders based on user id.
  */
