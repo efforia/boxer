@@ -30,5 +30,9 @@ const BidCtrl = module.exports = {
     getOrderBids: async function (orderId) {
         let bids = await Bid.find({ order: orderId }).populate("user").lean(); // Finds bids
         return bids || []; // Returns bids or empty array
-    }
+    },
+    getIds: async function (ids) {
+        const identifiers = ids.map(id => mongoose.Types.ObjectId(id));
+        return await Bid.find({ '_id': { $in: identifiers }});
+    },
 }

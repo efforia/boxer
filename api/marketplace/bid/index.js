@@ -13,6 +13,8 @@ const MarsRouter = require("../../base/router");
 
 const router = new MarsRouter("bid");
 const controller = require("./bid.controller");
+const bid = require("./bid.model").schema.jsonSchema();
+
 
 /**
  * @interface placeBid
@@ -30,7 +32,7 @@ router.post("/:order/place", auth.hasValidToken(), execute(async (req, res) => {
     responses: swaggerUtils.defaultResponses(),
     parameters: [
         swaggerUtils.authParam(),
-        { "name": "bid", "in": "body", "description": "JSON representation of the bid.", "schema": { "type": "object" } }
+        { "name": "bid", "in": "body", "description": "JSON representation of the bid.", "schema": bid }
     ]
 });
 
@@ -50,7 +52,7 @@ router.post("/:order/final", auth.hasValidToken(), execute(async (req, res) => {
     responses: swaggerUtils.defaultResponses(),
     parameters: [
         swaggerUtils.authParam(),
-        { "name": "bid", "in": "body", "description": "JSON representation of the bid.", "schema": { "type": "object" } }
+        { "name": "bid", "in": "body", "description": "JSON representation of the bid.", "schema": bid }
     ]
 });
 
