@@ -109,7 +109,7 @@ const OrderCtrl = module.exports = {
         return order; // Returns the cancelled order
     },
     accept: async function (user, id) {
-        let order = await Order.findOneAndUpdate({ _id: id }, { $set: { status: "accepted", merchant: merchant._id, acceptedAt: new Date() } }, { new: true }).populate("customer merchant items.information");   // Updates order
+        let order = await Order.findOneAndUpdate({ _id: id }, { $set: { status: "accepted", merchant: user._id, acceptedAt: new Date() } }, { new: true }).populate("customer merchant items.information");   // Updates order
         await (OrderCtrl.notifyUsersAbout(order)); // Notifies users
         return order; // Returns order
     },

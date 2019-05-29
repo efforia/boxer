@@ -50,7 +50,7 @@ const auth = module.exports = {
     isMerchant: () => {
         return auth.hasValidToken().
             use((req, res, next) => {
-                if (req.user.roles.indexOf("MERCHANT") > -1)
+                if (req.user.role.indexOf("MERCHANT") > -1)
                     next();
                 else
                     res.status(403).json({
