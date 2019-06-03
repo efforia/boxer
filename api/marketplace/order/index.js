@@ -139,13 +139,31 @@ router.get("/:id/cancel", auth.isAuthenticated(), execute(async (req, res) => {
 });
 
 /**
+ * @interface finishOrder
+ * Adds finished information to the order.
+ */
+ router.post("/:id/finish", auth.isMerchant(), execute(async (req, res) => {
+     let user = req.user;
+     let id = req.params.id;
+     let updated = await controller.finish(user, id);
+     return res.status(200).json(updated);
+ })).describe({
+     tags: [router.entity],
+     operationId: "finishOrder",
+     parameters: [swaggerUtils.authParam()],
+     responses: swaggerUtils.defaultResponses()
+ });
+
+
+
+/**
  * @interface rateOrder
  * Adds rating information to the order.
  */
 router.post("/:id/rate/:rate", auth.isAuthenticated(), execute(async (req, res) => {
     let user = req.user;
     let id = req.params.id;
-    let rate = req.params.id;
+    let rate = req.params.rate;
     let updated = await controller.rate(user, id, rate);
     return res.status(200).json(updated);
 })).describe({

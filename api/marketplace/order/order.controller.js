@@ -114,7 +114,7 @@ const OrderCtrl = module.exports = {
         return order; // Returns order
     },
     finish: async function (user, id) {
-        let order = await Order.findOneAndUpdate({ _id: id }, { $set: { status: "finished", merchant: merchant._id, finishedAt: new Date() } }, { new: true }).populate("customer merchant items.information");   // Updates order
+        let order = await Order.findOneAndUpdate({ _id: id }, { $set: { status: "finished", merchant: user._id, finishedAt: new Date() } }, { new: true }).populate("customer merchant items.information");   // Updates order
         await (OrderCtrl.notifyUsersAbout(order)); // Notifies users
         return order; // Returns order
     },
