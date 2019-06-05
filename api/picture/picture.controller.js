@@ -57,7 +57,10 @@ const PictureCtrl = module.exports = {
             mimeType: mimeType, // And the picture mime type
             sent: sent, // And the timestamp from when the picture was uploaded
             file: filename, // And the picture file name
-            externalRef: ref // And the picture bucket file url
+            externalRef: 'https://' +
+            env.server.DIGITALOCEAN_CONFIG.spacesBucket + '.' +
+            env.server.DIGITALOCEAN_CONFIG.spacesEndpoint + '/' +
+            filepath // And the picture bucket file url
           })
         );
       }

@@ -47,7 +47,8 @@ router.get("/:id", execute(async (req, res) => {
     let picture = await controller.get(id);
     if (!picture) return res.status(404).send({}); // In case the picture is not found, returns a 404
     res.header("Content-Type", picture.mimeType); // Sets the response header
-    return res.status(301).redirect(picture.externalRef); // And redirects to the file url
+    // return res.status(301).redirect(picture.externalRef); // And redirects to the file url
+    return res.status(200).json(picture);
 })).describe({
     tags: [router.entity],
     operationId: "getPicture",
