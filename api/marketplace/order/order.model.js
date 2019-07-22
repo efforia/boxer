@@ -35,10 +35,8 @@ let OrderSchema = mongoose.Schema({
     paymentMode: { type: String, default: 'ON_DELIVERY' },
     paymentInstrument: { type: Object, default: { label: 'CASH' } },
     receivingMode: { type: String, default: 'CHECKOUT' },
-    ratings: {
-        customerRate: { type: Number, default: 0 },
-        merchantRate: { type: Number, default: 0 }
-    },
+    customerRate: { type: Number, default: -1 },
+    merchantRate: { type: Number, default: -1 },
     paymentInfo: { type: Object },
     payload: { type: Object },
     pictures: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Picture' }],

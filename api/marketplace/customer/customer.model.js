@@ -18,6 +18,7 @@ let CustomerSchema = new mongoose.Schema({
     orders: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Order' }],
     facebook: { type: Object },
     favoriteMerchants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Merchant', default: [] }],
+    rating: { type: Number, default: 0 }
 });
 
 // --------------- Module Plugins

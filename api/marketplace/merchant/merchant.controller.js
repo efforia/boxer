@@ -22,15 +22,15 @@ const DEFAULT_RADIUS = 100000;
 // --------------- Module Controller
 const MerchantCtrl = module.exports = {
     details: async function (id, username) {
-        let byCriteria = username ? { username: username } : { _id: id }; // Creates criteria 
+        let byCriteria = username ? { username: username } : { _id: id }; // Creates criteria
         let merchant = await Merchant.findOne(byCriteria, '-password -paymentData').lean(); // Gets merchant details
         return merchant; // Returns it
     },
 
     updateRating: async function (id) {
-        let orders = await (Order.find({ merchant: id, 'ratings.customerRate': { $ne: null } }, '-_id ratings.customerRate')); // Gets merchant orders
+        let orders = await (Order.find({ merchant: id, 'customerRate': { $ne: null } }, '-_id customerRate')); // Gets merchant orders
         let ratingsTotal = 0; // Initializes rating count
-        orders.map((order) => { ratingsTotal += order.ratings.customerRate; }); // Calculates the rating amount
+        orders.map((order) => { ratingsTotal += order.customerRate; }); // Calculates the rating amount
         let rating = (ratingsTotal / orders.length); // Divides it by the ratings number
         let merchant = await Merchant.findOneAndUpdate({ _id: id }, { rating: rating }); // Updates it on the the merchant
         return merchant; // Returns the updated merchant

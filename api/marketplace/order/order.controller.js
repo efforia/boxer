@@ -19,6 +19,7 @@ const env = require("../../../.env/index");
 const project = require("../../../.mars/project");
 const locales = require("../../../.mars/locales/pt");
 const MerchantCtrl = require("../merchant/merchant.controller.js");
+const CustomerCtrl = require("../customer/customer.controller.js");
 
 // --------------- Module functions
 const pad = (num) => {
@@ -125,10 +126,17 @@ const OrderCtrl = module.exports = {
     rate: async function (user, id, rate) {
         let ratings = {}; // Initializes ratings object
         let role = user.__t; // Checks user role
-        if (role == "Merchant") ratings.merchantRate = rate; // Merchant rating the user
-        else ratings.customerRate = rate; // User rating the merchant
-        let order = await Order.findOneAndUpdate({ _id: id }, { $set: { ratings: ratings } }); // Customer rating update
-        if (role == "Customer") MerchantCtrl.updateRating(order.merchant); // Merchant rating update
+        let order = await Order.findOneAndUpdate({ _id: id }, {
+          $set: { customerRate: rate }
+        }); // Customer rating update
+        if (role == "Merchant") {
+          CustomerCtrl.updateRating(order.customer);
+          order = await Order.findOneAndUpdate({ _id: id }, {
+            $set: { merchantRate: rate }
+          }); // Customer rating update
+        } else {
+          MerchantCtrl.updateRating(order.merchant); // Merchant rating update
+        }
         return order; // Returns confirmation
     },
     getOrdersByUserId: async function (user, status) {
