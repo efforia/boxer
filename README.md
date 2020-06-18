@@ -1,3 +1,3 @@
 # Wasserboxer
 
-Backedn written in Node.js for delivery application
+Backend written in Node.js for delivery application
