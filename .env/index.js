@@ -3,7 +3,10 @@ const config = require("../.mars/project");
 const name = config.codename.toLowerCase();
 const path = require('path');
 const Base64 = require('js-base64').Base64;
-const database = process.env.DATABASE_HOST || 'mongodb'
+const database = process.env.DATABASE_NAME || 'fretefacil'
+const host = process.env.DATABASE_HOST || 'mongodb:27017'
+const user = process.env.DATABASE_USER || 'root'
+const password = encodeURIComponent(process.env.DATABASE_PWD) || 'root'
 
 // BEWARE: Be extra careful when exposing environment vars to the client side. Expose only the extrictly mandatory.
 const client = {
@@ -22,7 +25,7 @@ const client = {
 const server = {
     ENV_TYPE: "prod",
     HEROKU_DEPLOY_TOKEN: "cf988056-99d8-4e61-93c3-238ffde418f9",
-    MONGODB: `mongodb://root:root@${database}:27017/fretefacil?authSource=admin`,
+    MONGODB: `mongodb+srv://${user}:${password}@${host}/${database}?authSource=admin`,
     ONESIGNAL_API_KEY: "MTg2ZDRlZTItNjgwNC00OGQ1LWJmOGQtZTdiOTYzYzg1MzFh",
     SENDGRID_API_KEY: "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",
     FACEBOOK_CLIENT_SECRET: "27545f26f6e4d15a6c0b09f8a2ef4917",
