@@ -50,7 +50,7 @@ const Mars = module.exports = {
             log(`Connecting to MongoDB: ${env.server.MONGODB}...`.yellow);
             mongoose.Promise = global.Promise;
             mongoose.set('useCreateIndex', true);
-            await mongoose.connect(env.server.MONGODB, { useMongoClient: true });
+            await mongoose.connect(env.server.MONGODB/*, { useMongoClient: true }*/);
         } catch (error) {
             if (error) console.log(error);
             log(`MongoDB connection failure: ${error}!`.red);
