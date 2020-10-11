@@ -65,7 +65,7 @@
     "moip-sdk-js": "^2.1.0",
     "moip-sdk-node": "^1.2.1",
     "moment": "^2.22.0",
-    "mongoose": "^4.13.11",
+    "mongoose": "^5.12.1",
     "mongoose-deep-populate": "^3.1.1",
     "mongoose-delete": "0.4.0",
     "mongoose-lifecycle": "1.0.0",
