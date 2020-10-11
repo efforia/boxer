@@ -16,7 +16,7 @@ const log = require("./.bin/utils/logger").log;
 
 const app = express();
 const env = require("./.env");
-let host = ip.address();
+let host = process.env.HOST || ip.address();
 let port = process.env.PORT || "3000";
 let storage = multer.memoryStorage()
 // app.use(secure);
