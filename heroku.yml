@@ -3,7 +3,7 @@ build:
         web: Dockerfile
 release:
     image: web
-    # command:
-    #     - npm run dev
+    command:
+        - echo 'Starting server after deployment!';
 run:
     web: npm start
