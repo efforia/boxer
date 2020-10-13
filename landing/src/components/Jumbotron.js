@@ -17,7 +17,7 @@ class Jumbotron extends React.Component {
               <div className="container">
                 <div className="row text-center">
                   <div className="twelve columns">
-                    <img src={logo} alt="Logo do Frete Fácil" style={{ width: "60vw" }}/>
+                    <img src={logo} alt="Logo do Shipping" style={{ width: "60vw" }}/>
                     <h5 className="text-logo">Simplifique seu transporte!</h5>
                     {/*<button className="btn-section" onClick={(e) => this.scrollToDiv('presentation')}>Saiba mais</button>*/}
                   </div>

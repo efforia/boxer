@@ -8,7 +8,7 @@ class Subscribe extends React.Component {
         <div className="row text-center">
           <h3><br />Eu quero um frete </h3>
           <Mailchimp
-          action='https://fretefacil.us20.list-manage.com/subscribe/post?u=4acd3bfc9b0d30cdec21595e4&amp;id=09474778be'
+          action='https://shipping.us20.list-manage.com/subscribe/post?u=4acd3bfc9b0d30cdec21595e4&amp;id=09474778be'
           fields={[
             {
               name: 'EMAIL',

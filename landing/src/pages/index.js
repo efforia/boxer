@@ -18,7 +18,7 @@ class HomePage extends React.Component {
     }
 
     render() {
-        const siteTitle = "Frete Fácil";
+        const siteTitle = "Shipping";
         return (
           <Layout>
             <Helmet title={siteTitle} />

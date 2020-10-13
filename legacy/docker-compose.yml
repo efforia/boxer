@@ -16,7 +16,7 @@ services:
     command: gunicorn boxer.wsgi -b 0.0.0.0:8000
     restart: always
     environment:
-      - VIRTUAL_HOST=fretefacil.efforia.io
+      - VIRTUAL_HOST=shipping.efforia.io
       - REDIS_URL=store
       - DATABASE_URL=postgres://postgres@db:5432/postgres
     volumes:

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load static from staticfiles %}
-{% block title %} Frete Fácil {% endblock %}
+{% block title %} Shipping {% endblock %}
 
 {% block headers %}
 <!--<link href="#" rel="shortcut icon">!-->
@@ -40,7 +40,7 @@
 <!--<div class="cover">
   <div style="width:100%">
     <img src="{% static 'svg/kombi.svg' %}" style="max-width:100px"/>
-    <h1 style="color:white">Frete Fácil</h1>
+    <h1 style="color:white">Shipping</h1>
   </div>
 </div>!-->
 
@@ -48,7 +48,7 @@
     <div class="six columns cover" style="height:100%">
       <div style="width:100%">
         <img src="{% static 'svg/kombi.svg' %}" style="max-width:100px"/>
-        <h1 style="color:white">Frete Fácil</h1>
+        <h1 style="color:white">Shipping</h1>
       </div>
     </div>
     <div class="six columns page" style="height:100%; display:flex; align-items:center;">
@@ -59,13 +59,13 @@
         <label for="phone-input">Digite seu telefone com código DDD</label>
         <input class="u-full-width" placeholder="+55 (51) 4042 - 3888" name="phone" id="phone-input" type="text">
         <label for="email-input">Escreva o e-mail que podemos lhe contatar</label>
-        <input class="u-full-width" placeholder="ola@fretefacil.com.br" name="email" id="email-input" type="email">
+        <input class="u-full-width" placeholder="ola@shipping.com.br" name="email" id="email-input" type="email">
         <label for="name-input">Nome completo do freteiro para cadastro</label>
         <input class="u-full-width" placeholder="William Oliveira de Lagos" name="name" id="name-input" type="text">
         <label for="name-input">Região onde geralmente atua</label>
         <input class="u-full-width" placeholder="Região Metropolitana de Porto Alegre" name="region" id="name-input" type="text">
         <label for="exampleMessage">Mensagem</label>
-        <textarea class="u-full-width" placeholder="Olá Frete Fácil..." name="text" id="exampleMessage"></textarea>
+        <textarea class="u-full-width" placeholder="Olá Shipping..." name="text" id="exampleMessage"></textarea>
         <input class="button-primary" value="Registrar" type="submit">
       </form>
       <p>{% trans "Criado orgulhosamente por " %}<a href="http://efforia.io/">Efforia</a></p>

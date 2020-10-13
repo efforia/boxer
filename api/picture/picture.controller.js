@@ -33,7 +33,7 @@ const PictureCtrl = module.exports = {
         const file = files[i];
         const filename = file.originalname;
         const buffer = file.buffer;
-        const filepath = 'fretefacil/'+ownerId+'_'+filename
+        const filepath = 'shipping/'+ownerId+'_'+filename
         let params = {
           Bucket: env.server.DIGITALOCEAN_CONFIG.spacesBucket,
           Key: filepath,
@@ -82,7 +82,7 @@ const PictureCtrl = module.exports = {
 
     remove: async function (id, ownerId) {
         let picture = await Picture.findOne({ _id: id }).lean(); // Gets picture information
-        const filepath = 'fretefacil/'+ownerId+'_'+picture.file
+        const filepath = 'shipping/'+ownerId+'_'+picture.file
         let params = {
           Bucket: env.server.DIGITALOCEAN_CONFIG.spacesBucket,
           Key: filepath
