@@ -20,7 +20,7 @@
     "@google-cloud/storage": "^2.0.3",
     "awesome-phonenumber": "^2.2.6",
     "aws-sdk": "^2.444.0",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-cli": "^6.26.0",
     "babel-core": "7.0.0-alpha.19",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
